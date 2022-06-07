@@ -1,6 +1,6 @@
 # Instalación express
 ```bash
-sudo git clone https://github.com/lenguaje-latino/instalacion.git && cd instalacion && chmod +x latino_instalacion-linux.sh && ./latino_instalacion-linux.sh
+git clone https://github.com/lenguaje-latino/instalacion.git && cd instalacion && sudo chmod +x latino_instalacion-linux.sh && ./latino_instalacion-linux.sh
 ```
 El código de arriba tiene en su contenido los pasos para descargar e iniciar el instalador de latino en Linux
 
