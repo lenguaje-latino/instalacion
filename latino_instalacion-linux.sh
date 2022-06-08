@@ -4,10 +4,12 @@
 
 exe1=""
 exe2=""
-ID_LIKE=$(lsb_release -is)
+ID_LIKE=""
+OS=$(hostnamectl hostname)
+#ID_LIKE=$(lsb_release -is)
 rep="yes Y S J"
 
-if [ ${ID_LIKE} == Fedora ]; then
+if [ ${OS} == fedora ]; then
 	ID_LIKE="rhel fedora"
 	rep=""
 else
@@ -49,6 +51,14 @@ case ${ID_LIKE} in
 	;;
 esac
 
+echo #
+echo "#--------------------------------------------#"
+echo "| - Iniciando la actualizacion del sistema   |"
+echo "#--------------------------------------------#"
+echo "Este proceso puede llegar a tardar un tiempo considerable!"
+echo "Por favor, tenga paciencia..."
+echo #
+sleep 5
 ${rep} | ${exe1}
 
 clear
@@ -121,7 +131,7 @@ if [[ -n "$lat_ver" ]]; then
 	echo "https://t.me/+PqXr-IgDsyGQgepX"
 	echo #
 else
-    echo #
+	echo #
 	echo "#------------------------------------#"
 	echo "| - ***ERROR*** al instalar Latino   |"
 	echo "#------------------------------------#"

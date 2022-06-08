@@ -7,8 +7,9 @@
 lat_ver=$(latino --version)
 
 if [[ -n "$lat_ver" ]]; then
-    echo "Su version actual de latino es: ${lat_ver}"
-    read -p "Esta seguro de que desea continuar con la desinstalacion? [s/N]" sn
+    echo "#-----------------------------------------------------------------"
+    echo "| Su version actual de latino es: ${lat_ver}"
+    read -p "| Esta seguro de que desea continuar con la desinstalacion? [s/N]" sn
     case $sn in
         [Ss]* )
             sudo /bin/rm -f /usr/local/bin/latino
