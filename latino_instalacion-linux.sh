@@ -4,12 +4,18 @@
 
 exe1=""
 exe2=""
-ID_LIKE=""
+COMP=""
 OS=$(hostnamectl hostname)
-#ID_LIKE=$(lsb_release -is)
+ID_LIKE=$(lsb_release -is)
 rep="yes Y S J"
 
-if [ ${OS} == fedora ]; then
+if [ -n ${ID_LIKE} ]; then
+	COMP=${ID_LIKE}
+else
+	COMP=${OS}
+fi
+
+if [ ${COMP} == fedora ]; then
 	ID_LIKE="rhel fedora"
 	rep=""
 else
@@ -21,7 +27,7 @@ case ${ID_LIKE} in
 		exe1="sudo pacman -Syu"
 		exe2="sudo pacman -S --noconfirm base-devel cmake git"
 	;;
-	"debian")
+	"debian" | "Debian")
 		exe1="sudo apt-get update"
 		exe2="sudo apt-get install git cmake build-essential libreadline-dev libpthread-stubs0-dev"
 	;;
