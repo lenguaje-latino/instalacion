@@ -10,6 +10,8 @@ Este instalador tiene como objetivo facilitar la instalación de Latino en siste
 - Debian
 - Ubuntu
 - Fedora
+- CentOS 7
+- RHEL (Read Hat)
 - ArchLinux
 - Manjaro
 

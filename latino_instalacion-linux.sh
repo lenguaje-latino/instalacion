@@ -1,6 +1,5 @@
-# Script para Linux (Debian/Ubuntu, Fedora, Arch/Manjaro)
-# Creado por Melvin Guerrero ~ Junio 6, 2022 - 01:12 05:05 15:38 22:12 00:12
-# Ultima modificacion ~ Junio 7, 2022 - 13:12
+# Script para Linux (Debian/Ubuntu, Fedora, RHEL/CentOS-7, Arch/Manjaro)
+# Creado por Melvin Guerrero ~ Junio 6, 2022
 
 exe1=""
 exe2=""
@@ -16,8 +15,7 @@ else
 fi
 
 if [ ${COMP} == fedora ]; then
-	ID_LIKE="rhel fedora"
-	rep=""
+	ID_LIKE="fedora"
 else
 	[test -e /etc/os-release && os_release='/etc/os-release' || os_release='/usr/lib/os-release'
 	. "${os_release}"
@@ -31,10 +29,15 @@ case ${ID_LIKE} in
 		exe1="sudo apt-get update"
 		exe2="sudo apt-get install git cmake build-essential libreadline-dev libpthread-stubs0-dev"
 	;;
-	"rhel fedora")
-		#su
+	"fedora")
+		rep=""
 		exe1="sudo dnf -y update"
 		exe2="sudo dnf -y install gcc-c++ git cmake kernel-devel readline-devel"
+	;;
+	"rhel fedora")
+		rep=""
+		exe1="sudo yum -y update"
+		exe2="sudo yum -y group install git cmake gcc readline-devel \"Development Tools\""
 	;;
 	*)
 		echo #
