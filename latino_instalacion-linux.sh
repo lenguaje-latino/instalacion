@@ -37,7 +37,8 @@ case ${ID_LIKE} in
 	"rhel fedora")
 		rep=""
 		exe1="sudo yum -y update"
-		exe2="sudo yum -y group install git cmake gcc readline-devel \"Development Tools\""
+		exe2="sudo yum -y install git cmake readline-devel"
+		OScent=1
 	;;
 	*)
 		echo #
@@ -45,7 +46,7 @@ case ${ID_LIKE} in
 		echo "#  >>> Deteniendo instalacion... <<<"
 		echo "#"
 		echo "#  Este script solo es valido en systemas basados en:"
-		echo "#  Debian - Ubuntu, Fedora, ArchLinux - Manjaro"
+		echo "#  Debian/Ubuntu, Fedora, RHEL/CentOS-7, Arch/Manjaro"
 		echo "#"
 		echo "#  Le recomendamos usar los pasos manuales descritos en el siguiente enlace:"
 		echo "#  https://github.com/lenguaje-latino/instalacion"
@@ -90,6 +91,9 @@ echo "#--------------------------------#"
 echo #
 
 ${rep} | ${exe2}
+if [ ${OScent} == 1 ]; then
+	sudo yum -y groupinstall "Development Tools"
+fi
 
 echo #
 echo "#-----------------------------------------#"
