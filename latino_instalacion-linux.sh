@@ -36,11 +36,13 @@ case ${ID_LIKE} in
 		exe2="sudo dnf -y install gcc-c++ git cmake kernel-devel readline-devel"
 	;;
 	"rhel fedora")
-		#RHEL/CentOS 7/6/5
-		rep=""
-		exe1="sudo yum -y update"
-		exe2="sudo yum -y install git cmake readline-devel"
-		OScent=1
+			rep=""
+		if [ ${VERSION_ID} -le "7" ]; then
+			#RHEL/CentOS 7/6/5
+			exe1="sudo yum -y update"
+			exe2="sudo yum -y install git cmake readline-devel"
+			OScent=1
+		fi
 	;;
 	*)
 		echo #
@@ -97,9 +99,8 @@ echo #
 ${rep} | ${exe2}
 if [ ${OScent} == 1 ]; then
 	sudo yum -y groupinstall "Development Tools"
-	#sudo yum -y install perl-core zlib-devel
 
-	sudo yum remove cmake
+	sudo yum -y remove cmake
 	sudo yum -y install epel-release
 	sudo yum -y install epel-release cmake3
 
