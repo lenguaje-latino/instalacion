@@ -10,7 +10,7 @@ Este instalador tiene como objetivo facilitar la instalación de Latino en siste
 - Debian
 - Ubuntu
 - Fedora
-- CentOS 7
+- CentOS
 - RHEL (Read Hat)
 - ArchLinux
 - Manjaro
@@ -38,6 +38,7 @@ Este script actualizara e instalara todas las dependencias requeridas en Linux p
 Si usted al utilizar este script se le presenta algún error o problema, puede seguir los pasos para la instalación manual del Lenguaje Latino
 - [Debian / Ubuntu](https://github.com/lenguaje-latino/latino/blob/5c8daf7b1ed8bfaa832fb1741e4fd4c5beb034ee/.readme/OS_install/instalacion_debian.md)
 - [Fedora](https://github.com/lenguaje-latino/latino/blob/5c8daf7b1ed8bfaa832fb1741e4fd4c5beb034ee/.readme/OS_install/instalacion_fedora.md)
+- [RHEL / CentOS](https://github.com/lenguaje-latino/latino/blob/5c8daf7b1ed8bfaa832fb1741e4fd4c5beb034ee/.readme/OS_install/instalacion_centos.md)
 - [Arch / Manjaro](https://github.com/lenguaje-latino/latino/blob/5c8daf7b1ed8bfaa832fb1741e4fd4c5beb034ee/.readme/OS_install/instalacion_archlinux.md)
 
 <a name="desinstall"></a>

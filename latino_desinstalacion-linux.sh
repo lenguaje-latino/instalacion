@@ -1,6 +1,5 @@
-# Script para Linux (Debian/Ubuntu, Fedora, Arch/Manjaro)
+# Script para Linux (Debian/Ubuntu, Fedora, RHEL/CentOS, Arch/Manjaro)
 # Creado por Melvin Guerrero ~ Junio 6, 2022 - 15:40
-# Ultima modificacion ~ Junio 7, 2022 - 13:12 16:23
 
 #!/bin/sh
 

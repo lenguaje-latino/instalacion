@@ -1,4 +1,4 @@
-# Script para Linux (Debian/Ubuntu, Fedora, RHEL/CentOS-7, Arch/Manjaro)
+# Script para Linux (Debian/Ubuntu, Fedora, RHEL/CentOS, Arch/Manjaro)
 # Creado por Melvin Guerrero ~ Junio 6, 2022
 
 exe1=""
@@ -42,6 +42,11 @@ case ${ID_LIKE} in
 			exe1="sudo yum -y update"
 			exe2="sudo yum -y install git cmake readline-devel"
 			OScent=1
+		else
+			#RHEL/CentOs ^9/8
+			exe1="sudo dnf -y update"
+			exe2="sudo dnf -y install git cmake readline-devel"
+			OScent=2
 		fi
 	;;
 	*)
@@ -50,7 +55,7 @@ case ${ID_LIKE} in
 		echo "#  >>> Deteniendo instalacion... <<<"
 		echo "#"
 		echo "#  Este script solo es valido en systemas basados en:"
-		echo "#  Debian/Ubuntu, Fedora, RHEL/CentOS-7, Arch/Manjaro"
+		echo "#  Debian/Ubuntu, Fedora, RHEL/CentOS, Arch/Manjaro"
 		echo "#"
 		echo "#  Le recomendamos usar los pasos manuales descritos en el siguiente enlace:"
 		echo "#  https://github.com/lenguaje-latino/instalacion"
@@ -72,7 +77,7 @@ echo "| - Iniciando la actualizacion del sistema   |"
 echo "#--------------------------------------------#"
 echo "Este proceso puede llegar a tardar un tiempo considerable!"
 echo "Por favor, tenga paciencia..."
-echo " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
+echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo #
 sleep 6
 ${rep} | ${exe1}
@@ -107,6 +112,8 @@ if [ ${OScent} == 1 ]; then
 	sudo rm -rf /usr/bin/cmake
 	sudo ln -s /usr/bin/cmake3 /usr/bin/cmake
 	cmake --version
+elif [ ${OScent} == 2 ]; then
+	sudo dnf -y groupinstall "Development Tools"
 fi
 
 echo #
