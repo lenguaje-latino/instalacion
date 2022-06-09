@@ -4,6 +4,7 @@
 exe1=""
 exe2=""
 COMP=""
+OScent=0
 OS=$(hostnamectl hostname)
 ID_LIKE=$(lsb_release -is)
 rep="yes Y S J"
@@ -35,6 +36,7 @@ case ${ID_LIKE} in
 		exe2="sudo dnf -y install gcc-c++ git cmake kernel-devel readline-devel"
 	;;
 	"rhel fedora")
+		#RHEL/CentOS 7/6/5
 		rep=""
 		exe1="sudo yum -y update"
 		exe2="sudo yum -y install git cmake readline-devel"
@@ -62,13 +64,15 @@ case ${ID_LIKE} in
 esac
 
 echo #
+echo "            ~~~~ IMPORTANTE ~~~~             "
 echo "#--------------------------------------------#"
 echo "| - Iniciando la actualizacion del sistema   |"
 echo "#--------------------------------------------#"
 echo "Este proceso puede llegar a tardar un tiempo considerable!"
 echo "Por favor, tenga paciencia..."
+echo " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ "
 echo #
-sleep 5
+sleep 6
 ${rep} | ${exe1}
 
 clear
@@ -93,6 +97,15 @@ echo #
 ${rep} | ${exe2}
 if [ ${OScent} == 1 ]; then
 	sudo yum -y groupinstall "Development Tools"
+	#sudo yum -y install perl-core zlib-devel
+
+	sudo yum remove cmake
+	sudo yum -y install epel-release
+	sudo yum -y install epel-release cmake3
+
+	sudo rm -rf /usr/bin/cmake
+	sudo ln -s /usr/bin/cmake3 /usr/bin/cmake
+	cmake --version
 fi
 
 echo #
