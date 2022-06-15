@@ -12,12 +12,17 @@ if [[ -n "$lat_ver" ]]; then
     case $sn in
         [Ss]* )
             sudo /bin/rm -f /usr/local/bin/latino
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+            sudo /bin/rm -f /usr/local/lib/liblatino.dylib
+        else
             sudo /bin/rm -f /usr/local/lib/liblatino.so
+        fi
             sudo /bin/rm -f /usr/local/lib/libliblatino_static.a
             sudo /bin/rm -f /usr/local/share/man/man1/latino.1.gz
             sudo /bin/rm -f /usr/local/share/nano/latino.nanorc
             sudo /bin/rm -f /usr/local/share/applications/latino.desktop
             sudo /bin/rm -f /usr/local/share/latino/Latino-logo.png
+            sudo /bin/rm -f /usr/local/include/latino.h
             sudo /bin/rm -f /usr/local/include/latast.h
             sudo /bin/rm -f /usr/local/include/latcompat.h
             sudo /bin/rm -f /usr/local/include/latdic.h
